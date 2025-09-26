@@ -1,7 +1,10 @@
 import { Inngest } from "inngest";
 import userModel from '../models/user.model.js';
 
-export const inngest = new Inngest({ id: "my-app" });
+export const inngest = new Inngest({
+    id: "my-app",
+    signingKey: process.env.INNGEST_SIGNING_KEY
+});
 
 const syncUserCreation = inngest.createFunction(
     {id: 'sync-user-from-clerk'},
